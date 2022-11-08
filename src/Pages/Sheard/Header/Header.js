@@ -1,18 +1,22 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { SiCodechef } from "react-icons/si";
+import logo from '../../../images/logo.gif';
 
 const Header = () => {
     return (
         <div>
-            <Navbar className='bg-info sticky fixed-top' expand="md">  
+            <Navbar className='bg-info sticky fixed-top ff-poppins' expand="md">  
                 <Container>  
-                    <Navbar.Brand className='text-dark fw-bolder' as={Link} to="/"><SiCodechef></SiCodechef> Hero Chef</Navbar.Brand>  
+                    <Navbar.Brand className='text-dark fw-bolder' as={Link} to="/">
+                    <img className='mt-0' height='50px' src={logo} alt="" /> <span className='fw-bold fs-5'>Hero Chef</span>
+                    </Navbar.Brand>  
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />  
                     <Navbar.Collapse id="basic-navbar-nav">  
                         <Nav className="ms-auto menu me-sm-auto">
                             <Nav.Link className='text-dark' as={Link} to='/home'>Home</Nav.Link>
+                            <Nav.Link className='text-dark' as={Link} to='/services'>Services</Nav.Link>
+                            <Nav.Link className='text-dark' as={Link} to='/blog'>Blog</Nav.Link>
                         </Nav>
                     </Navbar.Collapse> 
                 </Container>  

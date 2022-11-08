@@ -2,7 +2,9 @@
 .App {
   text-align: center;
 }
-
+.text-justify{
+  text-align: justify;
+}
 .ff-poppins{
   font-family: 'Poppins', sans-serif;
 }
