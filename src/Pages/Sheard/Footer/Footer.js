@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div>
-            <h2>This is footer</h2>
-        </div>
+            <footer className='bg-info p-3 mt-4'>
+                <p className='text-center mb-0'>Copyright © 2022 <Link to='/'>Hero Chef</Link>.</p>
+            </footer>
     );
 };
 
