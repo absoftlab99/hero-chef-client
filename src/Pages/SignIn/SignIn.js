@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import login from '../../images/login.gif';
+import { FcGoogle } from "react-icons/fc";
+
 
 const SignIn = () => {
     return (
@@ -28,6 +30,10 @@ const SignIn = () => {
                             Sign In
                         </Button>
                     </Form>
+                    <hr className='w-75 m-auto border-info mt-3'></hr>
+                    <div className='text-center mt-2'>
+                        <Button className='w-50' variant='light'><FcGoogle></FcGoogle></Button>
+                    </div>
                 </div>
             </div>
         </div>
