@@ -35,9 +35,7 @@ const Header = () => {
                             <div className='d-flex align-items-center'>
                                 {
                                     user?.uid ? 
-                                    <Image className="border border-success m-auto me-2" style={{ height: "45px", width: "45px" }} roundedCircle src={user?.photoURL}></Image> :
-
-                                    <FcBusinessman className='display-6 text-warning m-auto'></FcBusinessman>
+                                    <Image className="border border-success m-auto me-2" style={{ height: "45px", width: "45px" }} roundedCircle src={user?.photoURL}></Image> : ''
                                 }
                             </div>
                         </Nav>
