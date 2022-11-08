@@ -21,7 +21,7 @@ const UserContext = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    const gogolePopUp = (provider) =>{
+    const googlePopUp = (provider) =>{
         return signInWithPopup(auth, provider)
     }
 
@@ -29,7 +29,7 @@ const UserContext = ({children}) => {
         return signOut(auth)
     }
 
-    const updtaeData = (name, photo) =>{
+    const updateData = (name, photo) =>{
         return updateProfile(auth.currentUser, {
             displayName: name,
             photoURL: photo
@@ -50,7 +50,7 @@ const UserContext = ({children}) => {
         }
     },[])
 
-    const authInfo = { createUser, signInUser, user, setUser, error, setError, gogolePopUp, logOut, updtaeData, resetPassword, loading, setLoading}
+    const authInfo = { createUser, signInUser, user, setUser, error, setError, googlePopUp, logOut, updateData, resetPassword, loading, setLoading}
     return (
         <div>
             <AuthContext.Provider value={authInfo}>

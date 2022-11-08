@@ -8,7 +8,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const SignIn = () => {
-    const {signInUser, user, setUser, error, setError, gogolePopUp} = useContext(AuthContext);
+    const {signInUser, user, setUser, error, setError, googlePopUp} = useContext(AuthContext);
     
     const provider = new GoogleAuthProvider();
     const location = useLocation();
@@ -38,7 +38,7 @@ const SignIn = () => {
 
     const googlePopLogin = (event) =>{
         event.preventDefault();
-        gogolePopUp(provider)
+        googlePopUp(provider)
         .then(result => {
             const user = result.user;
             navigate(from, { replace: true });

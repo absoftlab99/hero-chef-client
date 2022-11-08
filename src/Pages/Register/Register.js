@@ -4,7 +4,7 @@ import { AuthContext } from '../../contexts/UserContext';
 import register from '../../images/register.gif';
 
 const Register = () => {
-    const {createUser, updtaeData, setUser, user, setError, error} = useContext(AuthContext);
+    const {createUser, updateData, setUser, user, setError, error} = useContext(AuthContext);
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -17,7 +17,7 @@ const Register = () => {
         createUser(email, password, name, photo)
         .then((result) => {
             const user = result.user;
-            updtaeData(name, photo);
+            updateData(name, photo);
             setUser(user);
             setError("");
             console.log(user);
