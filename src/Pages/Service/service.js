@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
 
 const service = ({service}) => {
@@ -7,7 +8,11 @@ const service = ({service}) => {
     return (
         <div className='col-4 mb-3'>
             <Card className='border border-info border-opacity-50'>
-                <Card.Img variant="top" height={231} src={img} />
+                <PhotoProvider>
+                <PhotoView src={img}>
+                    <Card.Img variant="top" height={231} src={img} />
+                </PhotoView>
+                </PhotoProvider>
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>

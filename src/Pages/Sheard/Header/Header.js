@@ -3,7 +3,6 @@ import { Container, Image, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/UserContext';
 import logo from '../../../images/logo.gif';
-import { FcBusinessman } from "react-icons/fc";
 
 const Header = () => {
     const {user, logOut} = useContext(AuthContext);

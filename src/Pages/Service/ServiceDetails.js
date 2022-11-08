@@ -8,7 +8,7 @@ const ServiceDetails = () => {
     console.log(service);
     const {name, price, details, thumbnail} = service;
     return (
-        <div>
+        <div className='mb-5'>
             <div className='mt-5 pt-5 container row mx-auto'>
                 <div className="col-9">
                     <div className="">
