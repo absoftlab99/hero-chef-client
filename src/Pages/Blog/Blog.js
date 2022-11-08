@@ -2,6 +2,7 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 import blog1 from '../../images/blog1.jfif';
 import blog2 from '../../images/jwt.png';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const Blog = () => {
     return (
@@ -10,7 +11,11 @@ const Blog = () => {
                 {/* blog 1 */}
                 <div className="bg-light rounded text-justify p-5 border border-info border-opacity-50">
                     <h1 className='pb-3'>Blog-1: What Difference between SQL and NoSQL?</h1>
+                    <PhotoProvider>
+                    <PhotoView src={blog1}>
                     <img className='img-fluid rounded' src={blog1} alt="" />
+                    </PhotoView>
+                    </PhotoProvider>
                     <p className='pt-4'>If you work with databases, you need to understand the differences between SQL, MySQL, and NoSQL. By knowing how they differ, you can then ensure you use each one effectively at the right time. Get started by checking out the following helpful guide to SQL, MySQL, and NoSQL.</p>
                     <h4 className='text-muted'>What Are SQL, MySQL, and NoSQL?</h4>
                     <p>Structured Query Language, commonly known by the abbreviation SQL, is a programming language that is used to manage data that is held in a relational database management system or for stream processing in a relational database management system.
@@ -35,7 +40,11 @@ const Blog = () => {
                 {/* blog 2 */}
                 <div className="bg-light rounded text-justify p-5 border border-info border-opacity-50 mt-3">
                     <h1 className='pb-3'>Blog-2: What is JWT, and how does it work?</h1>
+                    <PhotoProvider>
+                    <PhotoView src={blog2}>
                     <img className='img-fluid rounded' src={blog2} alt="" />
+                    </PhotoView>
+                    </PhotoProvider>
                     <p className='pt-4'><b>JWT</b>, or <i>JSON Web Token</i>, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.</p>
                     <h4 className='text-muted'>How JWT Works?</h4>
                     <p>
