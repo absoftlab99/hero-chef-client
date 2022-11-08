@@ -41,11 +41,12 @@ const Blog = () => {
                     <p>
                     JWTs differ from other web tokens in that they contain a set of claims. Claims are used to transmit information between two parties. What these claims are depends on the use case at hand. For example, a claim may assert who issued the token, how long it is valid for, or what permissions the client has been granted.<br></br><br></br>
                     A JWT is a string made up of three parts, separated by dots (.), and serialized using base64. In the most common serialization format, compact serialization, the JWT looks something like this: xxxxx.yyyyy.zzzzz.
-                    Once decoded, you will get two JSON strings:<br></br>
+                    Once decoded, you will get two JSON strings:</p><br></br>
                     <ol>
                         <li>The <b>header</b> and the <b>payload</b>.</li>
                         <li>The <b>signature</b>.</li>
                     </ol>
+                    <p>
                     The <b>JOSE (JSON Object Signing and Encryption) header</b> contains the type of token — JWT in this case — and the signing algorithm.<br></br><br></br>
                     The payload contains the claims. This is displayed as a JSON string, usually containing no more than a dozen fields to keep the JWT compact. This information is typically used by the server to verify that the user has permission to perform the action they are requesting.<br></br><br></br>
                     There are no mandatory claims for a JWT, but overlaying standards may make claims mandatory. For example, when using JWT as bearer access token under OAuth2.0, iss, sub, aud, and exp must be present. some are more common than others. <br></br><br></br>
