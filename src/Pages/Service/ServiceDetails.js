@@ -2,11 +2,12 @@ import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import { BiDish, BiPaperPlane, } from "react-icons/bi";
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const ServiceDetails = () => {
     const service = useLoaderData();
     console.log(service);
-    const {name, price, details, thumbnail} = service;
+    const {name, price, details, thumbnail, img} = service;
     return (
         <div className='mb-5'>
             <div className='mt-5 pt-5 container row mx-auto'>
@@ -40,7 +41,11 @@ const ServiceDetails = () => {
                     </div>
                 </div>
                 <div className="col-3">
-                    <img width={'100%'} className='img-fluid' src={thumbnail} alt="" />
+                    <PhotoProvider>
+                    <PhotoView src={img}>
+                        <img width={'100%'} className='img-fluid' src={thumbnail} alt="" />
+                    </PhotoView>
+                    </PhotoProvider>
                     <h5 className='pt-2'>{name}</h5>
                     <h3 className='ff-poppins fw-bold text-muted'>Price: {price} BDT</h3>
                     <Button variant='outline-info'><BiDish className='fs-4'></BiDish> Checkout</Button>
