@@ -23,8 +23,14 @@ const Header = () => {
                             <Nav.Link className='text-dark' as={Link} to='/home'>Home</Nav.Link>
                             <Nav.Link className='text-dark' as={Link} to='/services'>Services</Nav.Link>
                             <Nav.Link className='text-dark' as={Link} to='/blog'>Blog</Nav.Link>
+                            <Nav.Link className='text-dark' as={Link} to='/my-reviews'>My Reviews</Nav.Link>
                             {
-                                user ? <Nav.Link onClick={signOutHandler} className='text-danger fw-bolder'>Log Out</Nav.Link> :
+                                user ?
+                                <>
+                                <Nav.Link className='text-dark' as={Link} to='/add-service'>Add Service</Nav.Link>
+                                <Nav.Link onClick={signOutHandler} className='text-danger fw-bolder'>Log Out</Nav.Link>
+                                </>
+                                :
                                 <>
                                     <Nav.Link className='text-dark' as={Link} to='/login'>Login</Nav.Link>
                                     <Nav.Link className='text-dark' as={Link} to='/register'>Register</Nav.Link>
