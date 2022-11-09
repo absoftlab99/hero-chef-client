@@ -19,7 +19,7 @@ const service = ({service}) => {
                     {details.slice(0, 100)} ...
                     </Card.Text>
                     <p className='text-dark'>Price: <b>{price} BDT</b></p>
-                    <Link to={`/details/${_id}`}><Button variant="info">Details</Button></Link>
+                    <Link to={`/services/${_id}`}><Button variant="info">Details</Button></Link>
                 </Card.Body>
             </Card>
         </div>

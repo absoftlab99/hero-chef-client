@@ -6,7 +6,6 @@ import Register from "../Pages/Register/Register";
 import ServiceDetails from "../Pages/Service/ServiceDetails";
 import Services from "../Pages/Service/Services";
 import SignIn from "../Pages/SignIn/SignIn";
-import PrivateRoute from "./PrivateRouter";
 
 
 export const router = createBrowserRouter([
@@ -28,7 +27,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/blog',
-                element: <PrivateRoute><Blog></Blog></PrivateRoute>
+                element: <Blog></Blog>
             },
             {
                 path: '/login',
@@ -39,9 +38,9 @@ export const router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: '/details/:id',
+                path: '/services/:id',
                 element: <ServiceDetails></ServiceDetails>,
-                loader: ({params}) => fetch(`https://service-review-server-six.vercel.app/details/${params.id}`)
+                loader: ({params}) => fetch(`https://service-review-server-six.vercel.app/services/${params.id}`)
             }
         ]
     }
