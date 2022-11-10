@@ -1,15 +1,17 @@
-import React, { useContext, useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import React, { useContext, useEffect, useState } from 'react';
+import { Button, Form, Spinner } from 'react-bootstrap';
 import { Link, useLoaderData } from 'react-router-dom';
 import { BiDish, BiPaperPlane, } from "react-icons/bi";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { AuthContext } from '../../contexts/UserContext';
 import { FaStar } from 'react-icons/fa';
 import { toast } from "react-toastify";
+import UserReview from './UserReview';
 
 const ServiceDetails = () => {
     const [givenStar, setGivenStar] = useState(0);
     const [reviews, setReviews] = useState([]);
+    const [loader, setLoader] = useState(true);
     const {user} = useContext(AuthContext);
     const service = useLoaderData();
     console.log(service);
@@ -32,7 +34,8 @@ const ServiceDetails = () => {
         reviewTime: timestamp,
     };
 
-    fetch("https://funta-kitchen-server.vercel.app/addreview", {
+    // https://service-review-server-six.vercel.app
+    fetch("https://service-review-server-six.vercel.app/addreview", {
         method: "POST",
         headers: {
         "content-type": "application/json",
@@ -42,7 +45,7 @@ const ServiceDetails = () => {
         .then((res) => res.json())
         .then((data) => {
         if (data.acknowledged) {
-            toast("Review Added Successfull");
+            toast("Review Added Successfully");
             form.reset();
             setGivenStar(0);
             console.log(data);
@@ -52,6 +55,14 @@ const ServiceDetails = () => {
         }
         });
     };
+    useEffect(() => {
+        fetch(`https://service-review-server-six.vercel.app/reviews?productId=${_id}`)
+        .then((res) => res.json())
+        .then((data) => {
+        setReviews(data);
+        setLoader(false);
+        });
+    }, [_id]);
     return (
         <div className='mb-5'>
             <div className='mt-5 pt-5 container row mx-auto'>
@@ -80,8 +91,7 @@ const ServiceDetails = () => {
                             <Form.Group className="mb-3">
                                 <Form.Label>Your Rating {givenStar}</Form.Label>
                                 <div>
-                                <a
-                                    href
+                                <a href   
                                     onMouseEnter={() => setGivenStar(1)}
                                     className={`btn btn-lg p-0 m-0 ${
                                     givenStar >= 1 ? "text-warning" : ""
@@ -138,6 +148,18 @@ const ServiceDetails = () => {
                         )}
                         </div>
                     </div>
+
+                    {loader ? (
+                    <div className="text-center my-5">
+                        <Spinner animation="border" variant="primary" />{" "}
+                        <h2>Loading Reviews</h2>
+                    </div>
+                    ) : (
+                    ""
+                    )}
+                    {reviews.map((review) => (
+                    <UserReview key={review._id} review={review}></UserReview>
+                    ))}
 
                 </div>
                 <div className="col-3">
