@@ -27,7 +27,7 @@ const Home = () => {
                 <div className="row container m-auto">
                     <div className="col-7 my-auto">
                         <h1 className='display-4 fw-bolder ff-poppins'>It's time to test some</h1>
-                        <h1 className='display-4 fw-bolder ff-poppins'><span className='text-info'>Special</span> items.</h1>
+                        <h1 className='display-4 fw-bolder ff-poppins'><span className='text-info ff-mono'>Special</span> items.</h1>
                     </div>
                     <div className="col-5 justify-content-end">
                         <img height='400' src={cover} alt="" />
@@ -36,7 +36,7 @@ const Home = () => {
             </div>
                 
             <section className='mb-5'>
-                <h1 className='text-center ff-poppins fw-bold pt-5'>Some <span className='text-info'>SPECIAL</span> Food Made by Me</h1>
+                <h1 className='text-center ff-poppins fw-bold pt-5'>Some <span className='text-info ff-mono fw-bolder'>Special</span> Food Made by Me</h1>
                 <p className="text-center px-5">
                 I am a famous chef, I am known more by my cooking taste than my name. <br></br>Here are some of the best from my many recipes.
                 </p>
@@ -71,7 +71,7 @@ const Home = () => {
             </section>
             <section className='container m-auto mt-5 mb-5'>
                 <div className="">
-                <h1 className='text-center pb-3 ff-poppins fw-bold'>Some <span className='text-info'>HIGH</span> 
+                <h1 className='text-center pb-3 ff-poppins fw-bold'>Some <span className='text-info ff-mono'>High </span> 
                 Profile Customer</h1>
                 <p className='text-center px-5 pb-3'>
                 All the famous dignitaries of the world like Vladimir Putin, Donald Trump, Elon Musk, Bill Gates and Mark Zuckerberg cannot imagine starting their day without my cooked food. These are my high profile customers
