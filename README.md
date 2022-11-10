@@ -9,9 +9,14 @@ Open Live Link : [https://hero-chef-a1d97.web.app/](https://hero-chef-a1d97.web.
 This project was created for Programming -Hero Assignment 11.
 In this project, we are trying to implement a cloud kitchen service sell online where you can add a service add review and delete your given review and edit your review.
 
- Markup : * Bullet list
+## Project Feature
+    * Review Services
+    * Add Services
+    * Registration 
+    * Login
+    * Blog
 
- 
+
 ### `npm Packages`
 
     1. "react-bootstrap": "^2.6.0",
