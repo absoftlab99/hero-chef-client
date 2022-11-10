@@ -47,7 +47,16 @@ const ServiceDetails = () => {
         .then((res) => res.json())
         .then((data) => {
         if (data.acknowledged) {
-            toast("Review Added Successfully");
+            toast.success('Review Added Successfully', {
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
             form.reset();
             setGivenStar(0);
             console.log(data);

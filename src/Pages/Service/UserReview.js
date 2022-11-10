@@ -14,7 +14,7 @@ import { FaStar } from "react-icons/fa";
     }).format(reviewTime);
 
     return (
-        <div className="col-md-8 my-2">
+        <div className="col-md-8 my-2 mt-5">
         <div className="d-flex">
             <div>
             <img
@@ -37,6 +37,7 @@ import { FaStar } from "react-icons/fa";
             <small className="text-muted">Review at , {time}</small>
             </div>
         </div>
+        <hr className="w-75 border border-info border-opacity-50"></hr>
         </div>
     );
 };

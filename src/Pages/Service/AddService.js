@@ -35,7 +35,16 @@ const AddService = () => {
         .then((res) => res.json())
         .then((data) => {
         if (data.acknowledged) {
-            toast("Service Added Success");
+            toast.success('Service Added Successfully', {
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
             form.reset();
         }
     });

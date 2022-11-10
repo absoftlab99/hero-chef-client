@@ -55,7 +55,16 @@ const MyReviews = () => {
             if (data.deletedCount > 0) {
                 const leftReviews = reviews.filter((review) => review._id !== id);
                 setReviews(leftReviews);
-                toast("Review Deleted Successfully");
+                toast.error('Review Deleted Successfully', {
+                    position: "top-center",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
             }
             console.log(data);
             });
@@ -84,7 +93,16 @@ const MyReviews = () => {
         .then((data) => {
             console.log(data);
             if (data.modifiedCount > 0) {
-            toast("Review Update Successfull!");
+            toast.success('Review Update Successfully', {
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
             handleClose();
             navigate("/my-reviews");
             }
