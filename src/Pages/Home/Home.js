@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import cover from '../../images/cover.gif';
 import chef from '../../images/chef.avif';
 import Service from '../Service/Service';
-import { Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import putin from '../../images/putin.png';
 import elon from '../../images/elon.jpg';
@@ -11,12 +11,13 @@ import trump from '../../images/trump.jpg';
 import mark from '../../images/mark.webp';
 import { A11y, Navigation, Pagination, Scrollbar } from 'swiper';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() =>{
-        fetch('https://service-review-server-six.vercel.app/services')
+        fetch('https://service-review-server-six.vercel.app/services?limit=3')
         .then(res => res.json())
         .then(data => setServices(data));
     },[])
@@ -46,6 +47,9 @@ const Home = () => {
                         service={service}
                         ></Service>)
                     }
+                </div>
+                <div className='text-center'>
+                    <Link to='/services'><Button variant='outline-info px-5'>See All</Button></Link>
                 </div>
             </section>
             <section className='bg-info bg-opacity-25'>
