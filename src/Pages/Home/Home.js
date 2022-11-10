@@ -10,6 +10,7 @@ import bil from '../../images/bil.jpg';
 import trump from '../../images/trump.jpg';
 import mark from '../../images/mark.webp';
 import { A11y, Navigation, Pagination, Scrollbar } from 'swiper';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const Home = () => {
     const [services, setServices] = useState([]);
@@ -36,6 +37,9 @@ const Home = () => {
                 
             <section className='mb-5'>
                 <h1 className='text-center ff-poppins fw-bold pt-5'>Some <span className='text-info'>SPECIAL</span> Food Made by Me</h1>
+                <p className="text-center px-5">
+                I am a famous chef, I am known more by my cooking taste than my name. <br></br>Here are some of the best from my many recipes.
+                </p>
                 <div className="row container mx-auto pt-4">
                     {
                         services.map(service => <Service
@@ -56,7 +60,11 @@ const Home = () => {
                         </p>
                     </div>
                     <div className="col-4">
-                        <img className='p-5 w-100' src={chef} alt="" />
+                        <PhotoProvider>
+                            <PhotoView src={chef}>
+                                <img className='p-5 w-100' src={chef} alt="" />
+                            </PhotoView>
+                        </PhotoProvider>
                     </div>
                 </div>
                 </div>
@@ -65,7 +73,7 @@ const Home = () => {
                 <div className="">
                 <h1 className='text-center pb-3 ff-poppins fw-bold'>Some <span className='text-info'>HIGH</span> 
                 Profile Customer</h1>
-                <p className='text-center px-5'>
+                <p className='text-center px-5 pb-3'>
                 All the famous dignitaries of the world like Vladimir Putin, Donald Trump, Elon Musk, Bill Gates and Mark Zuckerberg cannot imagine starting their day without my cooked food. These are my high profile customers
                 </p>
                 <Swiper
@@ -79,7 +87,11 @@ const Home = () => {
                     >
                     <SwiperSlide>
                         <Card>
-                            <Card.Img height='150' variant="top" src={putin}/>
+                            <PhotoProvider>
+                                <PhotoView src={putin}>
+                                    <Card.Img height='150' variant="top" src={putin}/>
+                                </PhotoView>
+                            </PhotoProvider>
                             <Card.Body>
                                 <Card.Title>Vladimir Putin</Card.Title>
                                 <Card.Text>
@@ -90,7 +102,11 @@ const Home = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <Card>
-                            <Card.Img height='150' variant="top" src={elon}/>
+                            <PhotoProvider>
+                                <PhotoView src={elon}>
+                                    <Card.Img height='150' variant="top" src={elon}/>
+                                </PhotoView>
+                            </PhotoProvider>
                             <Card.Body>
                                 <Card.Title>Elon Musk</Card.Title>
                                 <Card.Text>
@@ -101,7 +117,11 @@ const Home = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <Card>
-                            <Card.Img height='150' variant="top" src={mark}/>
+                            <PhotoProvider>
+                                <PhotoView src={mark}>
+                                    <Card.Img height='150' variant="top" src={mark}/>
+                                </PhotoView>
+                            </PhotoProvider>
                             <Card.Body>
                                 <Card.Title>Mark Zuckerberg</Card.Title>
                                 <Card.Text>
@@ -112,7 +132,11 @@ const Home = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <Card>
-                            <Card.Img height='150' variant="top" src={trump}/>
+                            <PhotoProvider>
+                                <PhotoView src={trump}>
+                                    <Card.Img height='150' variant="top" src={trump}/>
+                                </PhotoView>
+                            </PhotoProvider>
                             <Card.Body>
                                 <Card.Title>Donal Trump</Card.Title>
                                 <Card.Text>
@@ -123,7 +147,11 @@ const Home = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <Card>
-                            <Card.Img height='150' variant="top" src={bil}/>
+                            <PhotoProvider>
+                                <PhotoView src={bil}>
+                                    <Card.Img height='150' variant="top" src={bil}/>
+                                </PhotoView>
+                            </PhotoProvider>
                             <Card.Body>
                                 <Card.Title>Vladimir Putin</Card.Title>
                                 <Card.Text>
