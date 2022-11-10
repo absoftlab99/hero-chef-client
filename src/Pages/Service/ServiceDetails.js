@@ -7,8 +7,10 @@ import { AuthContext } from '../../contexts/UserContext';
 import { FaStar } from 'react-icons/fa';
 import { toast } from "react-toastify";
 import UserReview from './UserReview';
+import useTitle from '../../Hooks/useTitle';
 
 const ServiceDetails = () => {
+    useTitle('Service Details')
     const [givenStar, setGivenStar] = useState(0);
     const [reviews, setReviews] = useState([]);
     const [loader, setLoader] = useState(true);

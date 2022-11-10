@@ -12,10 +12,13 @@ import mark from '../../images/mark.webp';
 import { A11y, Navigation, Pagination, Scrollbar } from 'swiper';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
+import useTitle from '../../Hooks/useTitle';
 
 const Home = () => {
     const [services, setServices] = useState([]);
     const [loader, setLoader] = useState(true);
+
+    useTitle('Home');
 
     useEffect(() =>{
         fetch('https://service-review-server-six.vercel.app/services?limit=3')

@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { AuthContext } from '../../contexts/UserContext';
+import useTitle from '../../Hooks/useTitle';
 import register from '../../images/register.gif';
 
 const Register = () => {
+    useTitle('Register')
     const {createUser, updateData, setUser, user, setError, error} = useContext(AuthContext);
 
     const handleRegister = (event) => {

@@ -1,15 +1,52 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { FaPlus } from "react-icons/fa";
+import { toast } from "react-toastify";
+import useTitle from '../../Hooks/useTitle';
 
 const AddService = () => {
+    useTitle('Add Service')
+    const timestamp = Date.now();
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const title = form.name.value;
+        const fullImage = form.img.value;
+        const thumbnail = form.thumbnail.value;
+        const description = form.details.value;
+        const price = form.price.value;
+    
+        const newService = {
+            name: title,
+            img: fullImage,
+            thumbnail: thumbnail,
+            details: description,
+            price: price,
+            timestamp: timestamp,
+        };
+    
+        fetch("https://service-review-server-six.vercel.app/services", {
+        method: "POST",
+        headers: {
+        "content-type": "application/json",
+        },
+        body: JSON.stringify(newService),
+    })
+        .then((res) => res.json())
+        .then((data) => {
+        if (data.acknowledged) {
+            toast("Service Added Success");
+            form.reset();
+        }
+    });
+};
     return (
         <div className='mt-5 pt-5'>
             <div className="row container mx-auto">
                 <h2 className='text-center'>Add New Service</h2>
                 <hr className='w-25 m-auto border-info'></hr>
                 <div className="">
-                <Form className='w-50 m-auto pt-4'>
+                <Form onSubmit={handleSubmit} className='w-50 m-auto pt-4'>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Service Title</Form.Label>
                         <Form.Control name='name' type="text" placeholder="service title" />

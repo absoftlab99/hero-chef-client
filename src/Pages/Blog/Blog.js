@@ -3,8 +3,10 @@ import { Table } from 'react-bootstrap';
 import blog1 from '../../images/blog1.jfif';
 import blog2 from '../../images/jwt.png';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import useTitle from '../../Hooks/useTitle';
 
 const Blog = () => {
+    useTitle('Blog');
     return (
         <div className='pt-5'>
             <div className="container">
