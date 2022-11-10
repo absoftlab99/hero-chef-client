@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { BiDish, BiPaperPlane, } from "react-icons/bi";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { AuthContext } from '../../contexts/UserContext';
 
 const ServiceDetails = () => {
+    const {user} = useContext(AuthContext);
     const service = useLoaderData();
     console.log(service);
     const {name, price, details, thumbnail, img} = service;
@@ -17,8 +19,10 @@ const ServiceDetails = () => {
                         <p className='text-justify ff-poppins'>{details}</p>
                     </div>
                     <hr className='border-info'></hr>
-                    <div className="revews">
-                        <form>
+                    <div className="">
+                        {
+                            user ?
+                            <>
                             <h2>Share your review about this service</h2>
                             <Form.Group className="mb-3">
                                 <Form.Label>Your Review</Form.Label>
@@ -37,7 +41,10 @@ const ServiceDetails = () => {
                                 </Form.Select>
                             </Form.Group>
                             <Button variant='info'><BiPaperPlane></BiPaperPlane> Post</Button>
-                        </form>
+                            </>
+                            :
+                            <p className='text-center'>Please <Link to='/login'>Login</Link> to add a review</p>
+                        }
                     </div>
                 </div>
                 <div className="col-3">

@@ -5,6 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-photo-view/dist/react-photo-view.css';
+import 'swiper/css';
+import 'swiper/less';
+import 'swiper/less/navigation';
+import 'swiper/less/pagination';
 import UserContext from './contexts/UserContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
