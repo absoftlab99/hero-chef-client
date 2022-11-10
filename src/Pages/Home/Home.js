@@ -34,7 +34,6 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-                
             <section className='mb-5'>
                 <h1 className='text-center ff-poppins fw-bold pt-5'>Some <span className='text-info ff-mono fw-bolder'>Special</span> Food Made by Me</h1>
                 <p className="text-center px-5">
