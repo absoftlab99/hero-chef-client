@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Container, Image, Nav, Navbar } from 'react-bootstrap';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/UserContext';
 import logo from '../../../images/logo.gif';
@@ -41,7 +42,11 @@ const Header = () => {
                             <div className='d-flex align-items-center'>
                                 {
                                     user?.uid ? 
-                                    <Image className="border border-success m-auto me-2" style={{ height: "45px", width: "45px" }} roundedCircle src={user?.photoURL}></Image> : ''
+                                    <PhotoProvider>
+                                        <PhotoView src={user?.photoURL}>
+                                        <Image className="border border-success m-auto me-2" style={{ height: "45px", width: "45px" }} roundedCircle src={user?.photoURL}></Image>
+                                        </PhotoView>
+                                    </PhotoProvider> : ''
                                 }
                             </div>
                         </Nav>
