@@ -1,5 +1,5 @@
 import React from "react";
-import { FaStar } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 
     const UserReview = ({ review }) => {
     const { customar, customarPhoto, reviewText, star, reviewTime } = review;
@@ -28,10 +28,10 @@ import { FaStar } from "react-icons/fa";
             <div className="ms-2">
             <h5 className="mb-0">
                 {customar}{" "}
-                <span className="text-warning">
+                <small className="text-danger">
                 {star}
-                <FaStar className="mb-2 ms-1"></FaStar>
-                </span>
+                <FaHeart className="mb-2 ms-1"></FaHeart>
+                </small>
             </h5>
             <p className="p-0 m-0">{reviewText}</p>
             <small className="text-muted">Review at , {time}</small>

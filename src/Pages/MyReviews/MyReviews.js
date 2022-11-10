@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Button, Form, Table } from "react-bootstrap";
-import { FaStar, FaTrash, FaRegEdit } from "react-icons/fa";
+import { FaHeart, FaTrash, FaRegEdit } from "react-icons/fa";
 import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -139,8 +139,8 @@ const MyReviews = () => {
                     <td className="text-start">{review.productTitle}</td>
                     <td className="text-start">{review.reviewText}</td>
                     <td className="text-center">
-                    {review.star}
-                    <FaStar className="mb-1 text-warning"></FaStar>
+                    {review.star} 
+                    <FaHeart className="mb-1 text-danger ps-1"></FaHeart>
                     </td>
                     <td className="text-center">
                     <Button
@@ -191,46 +191,46 @@ const MyReviews = () => {
                     href
                     onMouseEnter={() => setGivenStar(1)}
                     className={`btn btn-lg p-0 m-0 ${
-                        givenStar >= 1 ? "text-warning" : ""
+                        givenStar >= 1 ? "text-danger" : ""
                     }`}
                     >
-                    <FaStar></FaStar>
+                    <FaHeart></FaHeart>
                     </a>
                     <a
                     href
                     onMouseEnter={() => setGivenStar(2)}
                     className={`btn btn-lg p-0 m-0 ${
-                        givenStar >= 2 ? "text-warning" : ""
+                        givenStar >= 2 ? "text-danger" : ""
                     }`}
                     >
-                    <FaStar></FaStar>
+                    <FaHeart></FaHeart>
                     </a>
                     <a
                     href
                     onMouseEnter={() => setGivenStar(3)}
                     className={`btn btn-lg p-0 m-0 ${
-                        givenStar >= 3 ? "text-warning" : ""
+                        givenStar >= 3 ? "text-danger" : ""
                     }`}
                     >
-                    <FaStar></FaStar>
+                    <FaHeart></FaHeart>
                     </a>
                     <a
                     href
                     onMouseEnter={() => setGivenStar(4)}
                     className={`btn btn-lg p-0 m-0 ${
-                        givenStar >= 4 ? "text-warning" : ""
+                        givenStar >= 4 ? "text-danger" : ""
                     }`}
                     >
-                    <FaStar></FaStar>
+                    <FaHeart></FaHeart>
                     </a>
                     <a
                     href
                     onMouseEnter={() => setGivenStar(5)}
                     className={`btn btn-lg p-0 m-0 ${
-                        givenStar >= 5 ? "text-warning" : ""
+                        givenStar >= 5 ? "text-danger" : ""
                     }`}
                     >
-                    <FaStar></FaStar>
+                    <FaHeart></FaHeart>
                     </a>
                 </div>
                 </Form.Group>

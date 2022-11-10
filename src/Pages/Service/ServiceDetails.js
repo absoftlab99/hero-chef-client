@@ -4,7 +4,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { BiDish, BiPaperPlane, } from "react-icons/bi";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { AuthContext } from '../../contexts/UserContext';
-import { FaStar } from 'react-icons/fa';
+import { FaHeart } from 'react-icons/fa';
 import { toast } from "react-toastify";
 import UserReview from './UserReview';
 import useTitle from '../../Hooks/useTitle';
@@ -88,8 +88,7 @@ const ServiceDetails = () => {
                         <div className="col-md-8">
                         {user ? (
                             <Form onSubmit={handlePostReview}>
-                            <h2>Share your review about this service</h2>
-                            <hr className="border-primary" />
+                            <h3 className='text-muted ff-poppins'>Share your review about this service</h3>
                             <Form.Group className="mb-3">
                                 <Form.Label>Your Review</Form.Label>
                                 <Form.Control
@@ -105,46 +104,46 @@ const ServiceDetails = () => {
                                 <a href   
                                     onMouseEnter={() => setGivenStar(1)}
                                     className={`btn btn-lg p-0 m-0 ${
-                                    givenStar >= 1 ? "text-warning" : ""
+                                    givenStar >= 1 ? "text-danger" : ""
                                     }`}
                                 >
-                                    <FaStar></FaStar>
+                                    <FaHeart></FaHeart>
                                 </a>
                                 <a
                                     href
                                     onMouseEnter={() => setGivenStar(2)}
                                     className={`btn btn-lg p-0 m-0 ${
-                                    givenStar >= 2 ? "text-warning" : ""
+                                    givenStar >= 2 ? "text-danger" : ""
                                     }`}
                                 >
-                                    <FaStar></FaStar>
+                                    <FaHeart></FaHeart>
                                 </a>
                                 <a
                                     href
                                     onMouseEnter={() => setGivenStar(3)}
                                     className={`btn btn-lg p-0 m-0 ${
-                                    givenStar >= 3 ? "text-warning" : ""
+                                    givenStar >= 3 ? "text-danger" : ""
                                     }`}
                                 >
-                                    <FaStar></FaStar>
+                                    <FaHeart></FaHeart>
                                 </a>
                                 <a
                                     href
                                     onMouseEnter={() => setGivenStar(4)}
                                     className={`btn btn-lg p-0 m-0 ${
-                                    givenStar >= 4 ? "text-warning" : ""
+                                    givenStar >= 4 ? "text-danger" : ""
                                     }`}
                                 >
-                                    <FaStar></FaStar>
+                                    <FaHeart></FaHeart>
                                 </a>
                                 <a
                                     href
                                     onMouseEnter={() => setGivenStar(5)}
                                     className={`btn btn-lg p-0 m-0 ${
-                                    givenStar >= 5 ? "text-warning" : ""
+                                    givenStar >= 5 ? "text-danger" : ""
                                     }`}
                                 >
-                                    <FaStar></FaStar>
+                                    <FaHeart></FaHeart>
                                 </a>
                                 </div>
                             </Form.Group>
