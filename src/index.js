@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/less';
 import 'swiper/less/navigation';
 import 'swiper/less/pagination';
+import 'react-toastify/dist/ReactToastify.css';
 import UserContext from './contexts/UserContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -46,7 +46,7 @@ const Home = () => {
                 </p>
                 <div className="row container mx-auto pt-4">
                     {
-                        loader? <div className="text-center w-100 top-50 ">
+                        loader? <div className="text-center w-100">
                         <Spinner animation="border" variant="info" /></div> :
                         ''
                     }

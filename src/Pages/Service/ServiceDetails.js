@@ -1,15 +1,57 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useLoaderData } from 'react-router-dom';
 import { BiDish, BiPaperPlane, } from "react-icons/bi";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { AuthContext } from '../../contexts/UserContext';
+import { FaStar } from 'react-icons/fa';
+import { toast } from "react-toastify";
 
 const ServiceDetails = () => {
+    const [givenStar, setGivenStar] = useState(0);
+    const [reviews, setReviews] = useState([]);
     const {user} = useContext(AuthContext);
     const service = useLoaderData();
     console.log(service);
-    const {name, price, details, thumbnail, img} = service;
+    const {name, price, details, thumbnail, img, _id} = service;
+
+    const timestamp = Date.now();
+
+    const handlePostReview = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const text = form.review.value;
+    const reviewData = {
+        reviewText: text,
+        star: givenStar,
+        productId: _id,
+        productTitle: name,
+        customarEmail: user.email,
+        customar: user.displayName,
+        customarPhoto: user.photoURL,
+        reviewTime: timestamp,
+    };
+
+    fetch("https://funta-kitchen-server.vercel.app/addreview", {
+        method: "POST",
+        headers: {
+        "content-type": "application/json",
+        },
+        body: JSON.stringify(reviewData),
+    })
+        .then((res) => res.json())
+        .then((data) => {
+        if (data.acknowledged) {
+            toast("Review Added Successfull");
+            form.reset();
+            setGivenStar(0);
+            console.log(data);
+            reviewData._id = data.insertedId;
+            const newReviewData = [reviewData, ...reviews];
+            setReviews(newReviewData);
+        }
+        });
+    };
     return (
         <div className='mb-5'>
             <div className='mt-5 pt-5 container row mx-auto'>
@@ -19,33 +61,84 @@ const ServiceDetails = () => {
                         <p className='text-justify ff-poppins'>{details}</p>
                     </div>
                     <hr className='border-info'></hr>
-                    <div className="">
-                        {
-                            user ?
-                            <>
+                    
+                    <div className="row">
+                        <div className="col-md-8">
+                        {user ? (
+                            <Form onSubmit={handlePostReview}>
                             <h2>Share your review about this service</h2>
+                            <hr className="border-primary" />
                             <Form.Group className="mb-3">
                                 <Form.Label>Your Review</Form.Label>
-                                <Form.Control as="textarea" placeholder="Write your review about this service" />
+                                <Form.Control
+                                name="review"
+                                as="textarea"
+                                placeholder="Write your review about this service"
+                                required
+                                />
                             </Form.Group>
                             <Form.Group className="mb-3">
-                                <Form.Label>Your Rating</Form.Label>
-                                <Form.Select>
-                                <option>Select Your Ratings</option>
-                                <option>0/10</option>
-                                <option>3/10</option>
-                                <option>5/10</option>
-                                <option>7/10</option>
-                                <option>9/10</option>
-                                <option>10/10</option>
-                                </Form.Select>
+                                <Form.Label>Your Rating {givenStar}</Form.Label>
+                                <div>
+                                <a
+                                    href
+                                    onMouseEnter={() => setGivenStar(1)}
+                                    className={`btn btn-lg p-0 m-0 ${
+                                    givenStar >= 1 ? "text-warning" : ""
+                                    }`}
+                                >
+                                    <FaStar></FaStar>
+                                </a>
+                                <a
+                                    href
+                                    onMouseEnter={() => setGivenStar(2)}
+                                    className={`btn btn-lg p-0 m-0 ${
+                                    givenStar >= 2 ? "text-warning" : ""
+                                    }`}
+                                >
+                                    <FaStar></FaStar>
+                                </a>
+                                <a
+                                    href
+                                    onMouseEnter={() => setGivenStar(3)}
+                                    className={`btn btn-lg p-0 m-0 ${
+                                    givenStar >= 3 ? "text-warning" : ""
+                                    }`}
+                                >
+                                    <FaStar></FaStar>
+                                </a>
+                                <a
+                                    href
+                                    onMouseEnter={() => setGivenStar(4)}
+                                    className={`btn btn-lg p-0 m-0 ${
+                                    givenStar >= 4 ? "text-warning" : ""
+                                    }`}
+                                >
+                                    <FaStar></FaStar>
+                                </a>
+                                <a
+                                    href
+                                    onMouseEnter={() => setGivenStar(5)}
+                                    className={`btn btn-lg p-0 m-0 ${
+                                    givenStar >= 5 ? "text-warning" : ""
+                                    }`}
+                                >
+                                    <FaStar></FaStar>
+                                </a>
+                                </div>
                             </Form.Group>
-                            <Button variant='info'><BiPaperPlane></BiPaperPlane> Post</Button>
-                            </>
-                            :
-                            <p className='text-center'>Please <Link to='/login'>Login</Link> to add a review</p>
-                        }
+                            <Button variant="info" type="submit">
+                                <BiPaperPlane></BiPaperPlane> Post Review
+                            </Button>
+                            </Form>
+                        ) : (
+                            <h2 className="text-left">
+                            Please <Link to="/login">Login</Link> to add a review
+                            </h2>
+                        )}
+                        </div>
                     </div>
+
                 </div>
                 <div className="col-3">
                     <PhotoProvider>
