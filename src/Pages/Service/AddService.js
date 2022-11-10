@@ -43,8 +43,8 @@ const AddService = () => {
     return (
         <div className='mt-5 pt-5'>
             <div className="row container mx-auto">
-                <h2 className='text-center'>Add New Service</h2>
-                <hr className='w-25 m-auto border-info'></hr>
+            <h1 className='text-center ff-poppins fw-bold'>Add <span className='text-info ff-mono fw-bolder'>New</span> Service</h1>
+                <hr className='w-50 m-auto border-info'></hr>
                 <div className="">
                 <Form onSubmit={handleSubmit} className='w-50 m-auto pt-4'>
                     <Form.Group className="mb-3" controlId="formBasicEmail">

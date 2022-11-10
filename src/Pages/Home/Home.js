@@ -42,6 +42,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <hr className='border border-info border-2 m-0'></hr>
             <section className='mb-5'>
                 <h1 className='text-center ff-poppins fw-bold pt-5'>Some <span className='text-info ff-mono fw-bolder'>Special</span> Food Made by Me</h1>
                 <p className="text-center px-5">
@@ -168,9 +169,9 @@ const Home = () => {
                                 </PhotoView>
                             </PhotoProvider>
                             <Card.Body>
-                                <Card.Title>Vladimir Putin</Card.Title>
+                                <Card.Title>Bill Gates</Card.Title>
                                 <Card.Text>
-                                President of Russia
+                                CEO of Microsoft
                                 </Card.Text>
                             </Card.Body>
                         </Card>

@@ -55,7 +55,7 @@ const MyReviews = () => {
             if (data.deletedCount > 0) {
                 const leftReviews = reviews.filter((review) => review._id !== id);
                 setReviews(leftReviews);
-                toast("Review Deleted Succssfull");
+                toast("Review Deleted Successfully");
             }
             console.log(data);
             });
@@ -93,8 +93,7 @@ const MyReviews = () => {
     return (
         <div className="mt-5 pt-5" style={{ minHeight: "80vh" }}>
         <div className="row container m-auto">
-            <h3 className="ff-poppins text-center">My All Reviews</h3>
-            <hr className="border-info w-25 m-auto"></hr>
+        <h1 className='text-center ff-poppins fw-bold mb-4'>My <span className='text-info ff-mono fw-bolder'>Amazing</span> All Reviews</h1>
             <Table striped bordered hover size="sm">
             <thead>
                 <tr>
