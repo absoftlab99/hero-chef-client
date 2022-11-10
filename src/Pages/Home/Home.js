@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import cover from '../../images/cover.gif';
 import chef from '../../images/chef.avif';
 import Service from '../Service/Service';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Spinner } from 'react-bootstrap';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import putin from '../../images/putin.png';
 import elon from '../../images/elon.jpg';
@@ -15,11 +15,15 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     const [services, setServices] = useState([]);
+    const [loader, setLoader] = useState(true);
 
     useEffect(() =>{
         fetch('https://service-review-server-six.vercel.app/services?limit=3')
         .then(res => res.json())
-        .then(data => setServices(data));
+        .then(data => {
+            setServices(data)
+            setLoader(false);
+        });
     },[])
 
     return (
@@ -41,6 +45,11 @@ const Home = () => {
                 I am a famous chef, I am known more by my cooking taste than my name. <br></br>Here are some of the best from my many recipes.
                 </p>
                 <div className="row container mx-auto pt-4">
+                    {
+                        loader? <div className="text-center w-100 top-50 ">
+                        <Spinner animation="border" variant="info" /></div> :
+                        ''
+                    }
                     {
                         services.map(service => <Service
                         key={service._id}
